@@ -9,3 +9,12 @@
 
 # rspec failure tracking
 .rspec_status
+
+.DS_Store
+
+.env
+
+.ruby-version
+.ruby-gemset
+
+/log/*.log

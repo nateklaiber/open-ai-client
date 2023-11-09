@@ -1,0 +1,29 @@
+[
+  {
+    "name": "GPT-4 Turbo",
+    "model_id": "gpt-4-1106-preview",
+    "description": "The latest GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens. This preview model is not yet suited for production traffic.",
+    "tokens_count": 128000,
+    "training_data_recent_date": "2023-04-01",
+    "discontinued_at": null,
+    "replacement_model_id": null
+  },
+  {
+    "name": "GPT 3.5 Turbo",
+    "model_id": "gpt-3.5-turbo-0613",
+    "description": "Snapshot of gpt-3.5-turbo from June 13th 2023. Will be deprecated on June 13, 2024.",
+    "tokens_count": 4096,
+    "training_data_recent_date": "2021-09-01",
+    "discontinued_date": "2024-06-01",
+    "replacement_model_id": "gpt-3.5-turbo-1106"
+  },
+  {
+    "name": "GPT 3.5 Turbo",
+    "model_id": "gpt-3.5-turbo-1106",
+    "description": "The latest GPT-3.5 Turbo model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens.",
+    "tokens_count": 16385,
+    "training_data_recent_date": "2021-09-01",
+    "discontinued_date": null,
+    "replacement_model_id": null
+  }
+]

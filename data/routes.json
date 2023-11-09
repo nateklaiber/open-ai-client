@@ -1,0 +1,66 @@
+{
+  "title": "OpenAI Platform",
+  "version": "v1",
+  "links": [
+    {
+      "name": "Assistants",
+      "path": "{version}/assistants",
+      "rel": "assistants",
+      "templated": true
+    },
+    {
+      "name": "Assistant",
+      "path": "{version}/assistants/{id}",
+      "rel": "assistant",
+      "templated": true
+    },
+    {
+      "name": "Threads",
+      "path": "{version}/threads",
+      "rel": "threads",
+      "templated": true
+    },
+    {
+      "name": "Thread",
+      "path": "{version}/threads/{id}",
+      "rel": "thread",
+      "templated": true
+    },
+    {
+      "name": "Thread Messages",
+      "path": "{version}/threads/{thread_id}/messages",
+      "rel": "thread-messages",
+      "templated": true
+    },
+    {
+      "name": "Thread Message",
+      "path": "{version}/threads/{thread_id}/messages/{id}",
+      "rel": "thread-message",
+      "templated": true
+    },
+    {
+      "name": "Thread Runs",
+      "path": "{version}/threads/{thread_id}/runs",
+      "rel": "thread-runs",
+      "templated": true
+    },
+    {
+      "name": "Thread Run",
+      "path": "{version}/threads/{thread_id}/runs/{id}",
+      "rel": "thread-run",
+      "templated": true
+    },
+    {
+      "name": "Models",
+      "path": "{version}/models",
+      "rel": "models",
+      "templated": true
+    },
+    {
+      "name": "Model",
+      "path": "{version}/models/{id}",
+      "rel": "model",
+      "templated": true
+    }
+  ]
+}
