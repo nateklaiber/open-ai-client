@@ -36,6 +36,14 @@ module OpenAi
         @attributes['created']
       end
 
+      def created_at
+        begin
+          Time.at(self.created_at_timestamp)
+        rescue
+          nil
+        end
+      end
+
       def owned_by
         @attributes['owned_by']
       end
