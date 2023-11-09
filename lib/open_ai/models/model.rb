@@ -38,7 +38,7 @@ module OpenAi
         @attributes['object']
       end
 
-      def created_timestamp
+      def created_at_timestamp
         @attributes['created']
       end
 
