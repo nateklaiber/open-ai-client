@@ -75,7 +75,7 @@ module OpenAi
         Hash(@attributes.fetch('thread', {}))
       end
 
-      def thread_attributes
+      def thread_attributes?
         !self.thread_attributes.empty?
       end
 
