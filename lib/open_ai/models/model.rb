@@ -1,6 +1,8 @@
 module OpenAi
   module Models
     class Model
+      include Comparable
+
       extend Forwardable
 
       def_delegator :model_type, :name
@@ -14,6 +16,10 @@ module OpenAi
 
       def initialize(attributes={})
         @attributes = Hash(attributes)
+      end
+
+      def <=>(other)
+        self.id <=> other.id
       end
 
       def id
