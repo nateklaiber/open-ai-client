@@ -31,6 +31,10 @@ module OpenAi
         internal_collection.each(&block)
       end
 
+      def retrieve(id)
+        self.find { |record| record.id == id }
+      end
+
       private
       def internal_collection
         @collection.map { |record| OpenAi::Models::ThreadMessage.new(record) }
