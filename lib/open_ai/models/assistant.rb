@@ -42,6 +42,14 @@ module OpenAi
         @attributes['created_at']
       end
 
+      def created_at
+        begin
+          Time.at(self.created_at_timestamp)
+        rescue
+          nil
+        end
+      end
+
       def tools_attributes
         Array(@attributes.fetch('tools', []))
       end
