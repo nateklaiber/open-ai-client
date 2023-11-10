@@ -36,6 +36,8 @@ Gem::Specification.new do |spec|
   # spec.add_dependency "example-gem", "~> 1.0"
   spec.add_dependency('faraday')
   spec.add_dependency('mimemagic')
+  spec.add_dependency('chronic')
+  spec.add_dependency('ruby-units')
   spec.add_dependency('mime-types')
   spec.add_dependency('faraday_middleware')
   spec.add_dependency('multi_json')
