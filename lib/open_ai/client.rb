@@ -2,6 +2,8 @@ require 'dotenv'
 Dotenv.load
 
 require 'delegate'
+require 'chronic'
+require 'ruby-units'
 require 'logger'
 require 'date'
 require 'liquid'
