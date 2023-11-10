@@ -61,6 +61,12 @@
       "path": "{version}/models/{id}",
       "rel": "model",
       "templated": true
+    },
+    {
+      "name": "Chat Completions",
+      "path": "{version}/chat/completions",
+      "rel": "chat-completions",
+      "templated": true
     }
   ]
 }

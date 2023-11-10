@@ -10,12 +10,12 @@
             record_attributes = Hash(attributes)
 
             params = {
-              :id         => record_attributes['id'],
-              :object => record_attributes['object'],
-              :created_at  => record_attributes['created_at'],
-              :name   => record_attributes['name'],
+              :id            => record_attributes['id'],
+              :object        => record_attributes['object'],
+              :created_at    => record_attributes['created_at'],
+              :name          => record_attributes['name'],
               :description   => record_attributes['description'],
-              :model_id => record_attributes['model'],
+              :model_id      => record_attributes['model'],
               :instructions  => record_attributes['instructions'],
               :tools         => OpenAi::Requests::RequestModels::Tools.new(record_attributes['tools']).as_original_attributes,
               :file_ids      => record_attributes['file_ids'],
@@ -66,9 +66,9 @@
 
           def as_original_attributes
             attrs = {
-              :model => self.model_id,
-              :name => self.name,
-              :description => self.description,
+              :model        => self.model_id,
+              :name         => self.name,
+              :description  => self.description,
               :instructions => self.instructions,
               :tools        => self.tools.as_original_attributes
             }

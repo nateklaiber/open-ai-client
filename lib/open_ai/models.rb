@@ -31,6 +31,15 @@ require File.expand_path('../models/thread_message', __FILE__)
 require File.expand_path('../models/thread_runs', __FILE__)
 require File.expand_path('../models/thread_run', __FILE__)
 
+require File.expand_path('../models/chat_completions', __FILE__)
+require File.expand_path('../models/chat_completion', __FILE__)
+
+require File.expand_path('../models/usage', __FILE__)
+require File.expand_path('../models/chat_message', __FILE__)
+
+require File.expand_path('../models/choices', __FILE__)
+require File.expand_path('../models/choice', __FILE__)
+
 require File.expand_path('../models/contents', __FILE__)
 require File.expand_path('../models/content', __FILE__)
 

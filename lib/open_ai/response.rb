@@ -51,17 +51,24 @@ module OpenAi
       self.headers['x-request-id']
     end
 
-    def organization_id
+    def openai_organization_id
       self.headers['openai-organization']
+    end
+
+    def openai_model
+      self.headers['openai-model']
     end
 
     def openai_version
       self.headers['openai-version']
     end
 
-    # In MS
     def processing_time
       self.headers['openai-processing-ms']
+    end
+
+    def processing_time_unit_object
+      RubyUnits::Unit.new(("%s %s" % [self.processing_time, 'millisecond']))
     end
 
     def allow_header
@@ -104,36 +111,13 @@ module OpenAi
     def rate_limits
       if self.rate_limit_attributes?
         OpenAi::Models::RateLimits.new(self.rate_limit_attributes)
+      else
+        OpenAi::Models::RateLimits.none
       end
     end
 
     def rate_limits?
-      !self.rate_limits.nil?
-    end
-
-
-    def links_header
-      self.headers.fetch('link', '')
-    end
-
-    def links_header?
-      self.headers.has_key?('link')
-    end
-
-    def links_attributes
-      if self.json?
-        self.body['links']
-      else
-        []
-      end
-    end
-
-    def links_attributes?
-      self.links_attributes.any?
-    end
-
-    def links?
-      self.links.any?
+      self.rate_limits.any?
     end
 
     def allowed_methods

@@ -13,6 +13,10 @@ module OpenAi
         @_record
       end
 
+      def href_value
+        [OpenAi::Client.api_host, self.path].join('/')
+      end
+
       def to_attributes
         @attributes
       end

@@ -1,7 +1,7 @@
   module OpenAi
     module Requests
       module RequestModels
-        class Tool
+        class ChatMessage
           def initialize(attributes={})
             @attributes = Hash(attributes)
           end
@@ -10,7 +10,8 @@
             record_attributes = Hash(attributes)
 
             params = {
-              :type => record_attributes['type'],
+              :role    => record_attributes['role'],
+              :content => record_attributes['content'],
             }
           end
 
@@ -19,19 +20,28 @@
             klass
           end
 
-          def type
-            @attributes[:type]
+          def role
+            @attributes[:role]
+          end
+
+          def content
+            @attributes[:content]
           end
 
           def as_original_attributes
             attrs = {
-              :type => self.type,
+              :role    => self.role,
+              :content => self.content,
             }
             attrs
           end
 
           def as_json(*)
             self.as_original_attributes
+          end
+
+          def to_attributes
+            @attributes
           end
         end
       end

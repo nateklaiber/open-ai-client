@@ -1,27 +1,23 @@
 module OpenAi
   module Models
-    class RateLimits
+    class Choices
       include Enumerable
 
       def initialize(collection=[])
         @collection = Array(collection)
       end
 
-      def self.none
-        self.new([])
-      end
-
       def each(&block)
         internal_collection.each(&block)
       end
 
-      def retrieve(id)
-        self.find { |record| record.id == id }
+      def to_attributes
+        Array(self.map(&:to_attributes)).flatten
       end
 
       private
       def internal_collection
-        @collection.map { |record| OpenAi::Models::RateLimit.new(record) }
+        @collection.map { |record| OpenAi::Models::Choice.new(record) }
       end
     end
   end
