@@ -45,8 +45,6 @@ module OpenAi
         url   = route.url_for(request_params)
 
         request = OpenAi::Client.connection.post do |req|
-          req.headers['Content-Type'] = 'application/json'
-
           if block_given?
             if block.arity == 1
               yield(req)
@@ -56,6 +54,7 @@ module OpenAi
               req.url(url)
             end
           else
+            req.headers['Content-Type'] = 'application/json'
             req.body = MultiJson.dump(request_model.as_json)
             req.url(url)
           end
@@ -108,8 +107,6 @@ module OpenAi
         url   = route.url_for(request_params.merge!(id: id))
 
         request = OpenAi::Client.connection.post do |req|
-          req.headers['Content-Type'] = 'application/json'
-
           if block_given?
             if block.arity == 1
               yield(req)
@@ -119,6 +116,7 @@ module OpenAi
               req.url(url)
             end
           else
+            req.headers['Content-Type'] = 'application/json'
             req.body = MultiJson.dump(request_model.as_json)
             req.url(url)
           end

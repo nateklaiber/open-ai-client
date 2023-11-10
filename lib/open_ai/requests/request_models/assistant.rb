@@ -17,7 +17,7 @@
               :description   => record_attributes['description'],
               :model_id => record_attributes['model'],
               :instructions  => record_attributes['instructions'],
-              :tools         => OpenAi::Requests::RequestModels::Tools.from_original_attributes(record_attributes['tools']),
+              :tools         => OpenAi::Requests::RequestModels::Tools.new(record_attributes['tools']).as_original_attributes,
               :file_ids      => record_attributes['file_ids'],
               :metadata      => record_attributes['medatada']
             }
@@ -72,10 +72,15 @@
               :instructions => self.instructions,
               :tools        => self.tools.as_original_attributes
             }
+            attrs
           end
 
           def as_json(*)
             self.as_original_attributes
+          end
+
+          def to_attributes
+            @attributes
           end
         end
       end

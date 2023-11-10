@@ -17,6 +17,16 @@ module OpenAi
         end
       end
 
+      def self.create(record_attributes={}, params={})
+        request = OpenAi::Requests::Assistants.create(record_attributes, params)
+
+        request.on(:success) do |resp|
+          response_body = resp.body
+
+          return OpenAi::Models::Assistant.new(response_body)
+        end
+      end
+
       def self.retrieve(id, params={})
         request = OpenAi::Requests::Assistants.retrieve(id, params)
 
@@ -24,6 +34,20 @@ module OpenAi
           response_body = resp.body
 
           return OpenAi::Models::Assistant.new(response_body)
+        end
+      end
+
+      def self.update(id, record_attributes={}, params={})
+        request = OpenAi::Requests::Assistants.update(id, record_attributes, params)
+
+        request.on(:success) do |resp|
+          response_body = resp.body
+
+          return OpenAi::Models::Assistant.new(response_body)
+        end
+
+        request.on(:failure) do |resp|
+          raise [record_attributes, resp.body].inspect
         end
       end
 

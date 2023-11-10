@@ -5,8 +5,27 @@ module OpenAi
         @attributes = Hash(attributes)
       end
 
+      def self.list(params={})
+        OpenAi::Models::Assistants.list(params)
+      end
+
+      def self.retrieve(id, params={})
+        OpenAi::Models::Assistants.retrieve(id, params)
+      end
+
+      def self.create(record_attributes={}, params={})
+        OpenAi::Models::Assistants.create(record_attributes, params)
+      end
+
       def id
         @attributes['id']
+      end
+
+      def update(record_attributes={})
+        request_model     = OpenAi::Requests::RequestModels::Assistant.from_original(self.to_attributes)
+        record_attributes = request_model.to_attributes.merge!(record_attributes)
+
+        OpenAi::Models::Assistants.update(self.id, record_attributes)
       end
 
       def object
