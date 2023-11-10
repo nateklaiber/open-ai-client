@@ -47,6 +47,23 @@ module OpenAi
       @_response
     end
 
+    def request_id
+      self.headers['x-request-id']
+    end
+
+    def organization_id
+      self.headers['openai-organization']
+    end
+
+    def openai_version
+      self.headers['openai-version']
+    end
+
+    # In MS
+    def processing_time
+      self.headers['openai-processing-ms']
+    end
+
     def allow_header
       self.headers.fetch('allow', '')
     end
@@ -65,73 +82,35 @@ module OpenAi
       !self.data.nil?
     end
 
-    def pagination_body_attributes
-      if self.json?
-        self.body['pagination']
+    def rate_limit_attributes
+      records = []
+
+      Hash(self.headers).slice(*OpenAi::Models::RateLimitTypes.header_keys).inject(records) do |coll,(k,v)|
+        record_attributes = {
+          'type'  => k,
+          'value' => v
+        }
+        coll.push(record_attributes)
+        coll
+      end
+
+      records
+    end
+
+    def rate_limit_attributes?
+      !self.rate_limit_attributes.empty?
+    end
+
+    def rate_limits
+      if self.rate_limit_attributes?
+        OpenAi::Models::RateLimits.new(self.rate_limit_attributes)
       end
     end
 
-    def pagination_body_attributes?
-      !self.pagination_body_attributes.nil?
+    def rate_limits?
+      !self.rate_limits.nil?
     end
 
-    def pagination_header_attributes
-      {
-        'page'             => self.headers['x-pagination-page'].to_i,
-        'per_page'         => self.headers['x-pagination-perpage'].to_i,
-        'total'            => self.headers['x-pagination-total'].to_i,
-        'maximum_per_page' => self.headers['x-pagination-maximumperpage'].to_i
-      }
-    end
-
-    def pagination_header_attributes?
-      self.headers.has_key?('x-pagination-page') &&
-        self.headers.has_key?('x-pagination-perpage') &&
-        self.headers.has_key?('x-pagination-total') &&
-        self.headers.has_key?('x-pagination-maximumperpage')
-    end
-
-    def resolved_pagination_attributes
-      resolved_attributes = {}
-
-      if self.pagination_body_attributes?
-        resolved_attributes = self.pagination_body_attributes
-      elsif self.pagination_header_attributes?
-        resolved_attributes = self.pagination_header_attributes
-      else
-        {}
-      end
-    end
-
-    def resolved_pagination_attributes?
-      !self.resolved_pagination_attributes.empty?
-    end
-
-    def pagination
-      if self.resolved_pagination_attributes?
-        OpenAi::Models::Pagination.new(self.resolved_pagination_attributes)
-      end
-    end
-
-    def pagination?
-      !self.pagination.nil?
-    end
-
-    def scope_header_attributes
-      self.headers.fetch('x-oauth-scopes', nil)
-    end
-
-    def scope_header_attributes?
-      !self.scope_header_attributes.nil?
-    end
-
-    def scope_values
-      if self.scope_header_attributes?
-        self.scope_header_attributes.split(',')
-      else
-        []
-      end
-    end
 
     def links_header
       self.headers.fetch('link', '')
