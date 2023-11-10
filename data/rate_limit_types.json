@@ -1,0 +1,38 @@
+[
+  {
+    "type": "x-ratelimit-limit-requests",
+    "description": "The maximum number of requests that are permitted before exhausting the rate limit.",
+    "unit_type": "each",
+    "unit_value": "each"
+  },
+  {
+    "type": "x-ratelimit-limit-tokens",
+    "description": "The maximum number of tokens that are permitted before exhausting the rate limit.",
+    "unit_type": "each",
+    "unit_value": "each"
+  },
+  {
+    "type": "x-ratelimit-remaining-requests",
+    "description": "The remaining number of requests that are permitted before exhausting the rate limit.",
+    "unit_type": "each",
+    "unit_value": "each"
+  },
+  {
+    "type": "x-ratelimit-remaining-tokens",
+    "description": "The remaining number of tokens that are permitted before exhausting the rate limit.",
+    "unit_type": "each",
+    "unit_value": "each"
+  },
+  {
+    "type": "x-ratelimit-reset-requests",
+    "description": "The time until the rate limit (based on requests) resets to its initial state.",
+    "unit_type": "time",
+    "unit_value": "ms"
+  },
+  {
+    "type": "x-ratelimit-reset-tokens",
+    "description": "The time until the rate limit (based on tokens) resets to its initial state.",
+    "unit_type": "time",
+    "unit_value": "ms"
+  }
+]
