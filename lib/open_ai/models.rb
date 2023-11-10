@@ -15,6 +15,9 @@ require File.expand_path('../models/model_types', __FILE__)
 require File.expand_path('../models/model_type', __FILE__)
 require File.expand_path('../models/null_model_type', __FILE__)
 
+require File.expand_path('../models/tool_types', __FILE__)
+require File.expand_path('../models/tool_type', __FILE__)
+
 require File.expand_path('../models/threads', __FILE__)
 require File.expand_path('../models/thread', __FILE__)
 require File.expand_path('../models/thread_messages', __FILE__)

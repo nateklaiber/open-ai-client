@@ -53,10 +53,12 @@ module OpenAi
       def tools_attributes
         Array(@attributes.fetch('tools', []))
       end
+      alias tool_types_attributes tools_attributes
 
       def tools
-        # List
+        OpenAi::Models::ToolTypes.new(self.tools_attributes)
       end
+      alias tool_types tools
 
       def tools?
         self.tools.any?
