@@ -54,6 +54,10 @@ module OpenAi
         @attributes['owned_by']
       end
 
+      def to_option
+        [self.id, self.id]
+      end
+
       def to_attributes
         @attributes
       end

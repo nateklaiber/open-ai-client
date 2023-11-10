@@ -44,6 +44,14 @@ module OpenAi
         self.class.new(self.discontinued_attributes)
       end
 
+      def to_options
+        self.map(&:to_option)
+      end
+
+      def to_attributes
+        Array(self.map(&:to_attributes)).flatten
+      end
+
       private
       def internal_collection
         @collection.map { |record| OpenAi::Models::Model.new(record) }
