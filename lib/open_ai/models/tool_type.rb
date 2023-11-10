@@ -6,12 +6,16 @@ module OpenAi
       end
 
       def type
-        @attributes['name']
+        @attributes['type']
       end
       alias id type
 
       def name
         @attributes['name']
+      end
+
+      def to_option
+        [self.name, self.id]
       end
 
       def to_attributes

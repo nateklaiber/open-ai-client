@@ -23,21 +23,16 @@ module OpenAi
         end
       end
 
-      def self.discontinued
-        records = self.list
-        records.discontinued
-      end
-
       def each(&block)
         internal_collection.each(&block)
       end
 
-      def discontinued_attributes
-        self.select(&:is_discontinued).map(&:to_attributes)
+      def to_options
+        self.map(&:to_option)
       end
 
-      def discontinued
-        self.class.new(self.discontinued_attributes)
+      def to_attributes
+        Array(self.map(&:to_attributes)).flatten
       end
 
       private

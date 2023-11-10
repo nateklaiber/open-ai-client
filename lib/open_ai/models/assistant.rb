@@ -103,6 +103,10 @@ module OpenAi
         # Retrieve
       end
 
+      def to_option
+        [self.name, self.id]
+      end
+
       def to_attributes
         @attributes
       end

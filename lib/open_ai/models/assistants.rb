@@ -55,6 +55,14 @@ module OpenAi
         internal_collection.each(&block)
       end
 
+      def to_options
+        self.map(&:to_option)
+      end
+
+      def to_attributes
+        Array(self.map(&:to_attributes)).flatten
+      end
+
       private
       def internal_collection
         @collection.map { |record| OpenAi::Models::Assistant.new(record) }
