@@ -1,0 +1,23 @@
+{
+  "date":"Fri, 10 Nov 2023 18:37:42 GMT",
+  "content-type":"application/json",
+  "transfer-encoding":"chunked",
+  "connection":"keep-alive",
+  "openai-version":"2020-10-01",
+  "openai-organization":"user-43534534543",
+  "x-request-id":"15aecde2badf2fa1395d5324345",
+  "x-ratelimit-limit-requests": 5000,
+  "x-ratelimit-limit-tokens": 80000,
+  "x-ratelimit-remaining-requests": 4999,
+  "x-ratelimit-remaining-tokens": 79968,
+  "x-ratelimit-reset-requests": "12ms",
+  "x-ratelimit-reset-tokens": "24ms",
+  "openai-processing-ms":"32",
+  "strict-transport-security":"max-age=15724800; includeSubDomains",
+  "cf-cache-status":"DYNAMIC",
+  "set-cookie":
+  "__cf_bm=izQ1.fvNfor1tsUdRHsjOxQ28uCqiMgO0p2G3e7TLhU-1699641462-0-ASqa/4FW6BninuyYvEnFSbPIe2cHqvEUWdKOdsGUXof6tQzuStspVt14GRk1cjhsYifH7qyQyeSyUzui21V+SKY=; path=/; expires=Fri, 10-Nov-23 19:07:42 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None",
+  "server":"cloudflare",
+  "cf-ray":"82406882dbd87119-YYZ",
+  "alt-svc":"h3=\":443\"; ma=86400"
+}
