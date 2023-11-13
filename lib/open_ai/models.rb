@@ -18,6 +18,9 @@ require File.expand_path('../models/null_model_type', __FILE__)
 require File.expand_path('../models/tool_types', __FILE__)
 require File.expand_path('../models/tool_type', __FILE__)
 
+require File.expand_path('../models/role_types', __FILE__)
+require File.expand_path('../models/role_type', __FILE__)
+
 require File.expand_path('../models/rate_limit_types', __FILE__)
 require File.expand_path('../models/rate_limit_type', __FILE__)
 

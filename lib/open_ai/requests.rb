@@ -4,6 +4,7 @@ require File.expand_path('../requests/directory', __FILE__)
 
 require File.expand_path('../requests/model_types', __FILE__)
 require File.expand_path('../requests/tool_types', __FILE__)
+require File.expand_path('../requests/role_types', __FILE__)
 
 require File.expand_path('../requests/rate_limit_types', __FILE__)
 

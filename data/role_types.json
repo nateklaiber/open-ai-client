@@ -1,0 +1,14 @@
+[
+  {
+    "name": "User",
+    "type": "user"
+  },
+  {
+    "name": "System",
+    "type": "system"
+  },
+  {
+    "name": "Assistant",
+    "type": "assistant"
+  }
+]
